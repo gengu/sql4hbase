@@ -1,5 +1,7 @@
 package com.alibaba.hq4hbase;
 
+import com.alibaba.hq4hbase.condition.Condition;
+import com.alibaba.hq4hbase.condition.QueryCondition;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -34,5 +36,9 @@ public class AppTest
     public void testApp()
     {
         assertTrue( true );
+    }
+
+    public void test1() throws Exception{
+        System.out.println((Condition)Class.forName("com.alibaba.hq4hbase.condition.QueryCondition").newInstance());
     }
 }

@@ -5,13 +5,18 @@
 grammar Sql4Hbase ;
 
 statement : 
-	  selectElement EOF 
+	  selectElement
+	  | descElement
 ; 
 
 
 selectElement : 
 	hq_select hq_from hq_where hq_limit
-; 
+;
+
+descElement :
+    DESC tableName
+;
 
 hq_select 
 	: 
@@ -35,7 +40,7 @@ hq_limit
 
 hq_compare 
 	: 
-	ROWKEY compare STRING 
+	columnName compare STRING
 ;
 
 hq_columns 
@@ -60,6 +65,7 @@ FROM : [Ff][Rr][Oo][Mm] ;
 WHERE : [Ww][Hh][Ee][Rr][Ee];
 LIMIT : [Ll][Ii][Mm][Ii][Tt];
 LIKE : [Ll][Ii][Kk][Ee] ;
+DESC : [Dd][Ee][Ss][Cc] ;
 
 ALL_COLUMNS : '*' ; 
 ROWKEY : [Rr][Oo][Ww][Kk][Ee][Yy];

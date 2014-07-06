@@ -1,6 +1,9 @@
-package antlr4;// Generated from Sql4Hbase.g4 by ANTLR 4.2.2
+// Generated from antlr4/Sql4Hbase.g4 by ANTLR 4.2.2
+package antlr4 ;
+import com.alibaba.hq4hbase.condition.Condition;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
+
 
 /**
  * This interface defines a complete listener for a parse tree produced by
@@ -118,6 +121,17 @@ public interface Sql4HbaseListener extends ParseTreeListener {
 	void exitColumnName(@NotNull Sql4HbaseParser.ColumnNameContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link Sql4HbaseParser#descElement}.
+	 * @param ctx the parse tree
+	 */
+	void enterDescElement(@NotNull Sql4HbaseParser.DescElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Sql4HbaseParser#descElement}.
+	 * @param ctx the parse tree
+	 */
+	void exitDescElement(@NotNull Sql4HbaseParser.DescElementContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link Sql4HbaseParser#selectElement}.
 	 * @param ctx the parse tree
 	 */
@@ -127,4 +141,6 @@ public interface Sql4HbaseListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSelectElement(@NotNull Sql4HbaseParser.SelectElementContext ctx);
+
+    public void setCondition(Condition condition) ;
 }
